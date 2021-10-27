@@ -9,6 +9,13 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].name).to eq "foo" 
     end
+
+    it "reduces quality by 1 each day" do
+      items = [Item.new("foo", 2, 2)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 1
+    end
   end
+
 
 end
