@@ -46,6 +46,12 @@ describe GildedRose do
       expect(items[0].quality).to eq 3
     end
 
+    it "The quality of an item can never be more than 50" do
+      items = [Item.new("Aged Brie", -50, 50)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 50
+    end
+
   end
 
 
