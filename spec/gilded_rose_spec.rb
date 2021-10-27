@@ -28,7 +28,6 @@ describe GildedRose do
       expect(items[0].quality).not_to eq -1
     end
 
-
     it "reduces sellin date by 1 each day" do
       items = [Item.new("foo", 2, 2)]
       GildedRose.new(items).update_quality()
@@ -40,6 +39,13 @@ describe GildedRose do
       GildedRose.new(items).update_quality()
       expect(items[0].quality).to eq 2
     end
+
+    it "Aged Brie increases in quality as the sellin date decreases" do
+      items = [Item.new("Aged Brie", 2, 2)]
+      GildedRose.new(items).update_quality()
+      expect(items[0].quality).to eq 3
+    end
+
   end
 
 
